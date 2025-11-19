@@ -22,19 +22,19 @@ The Micro-Learning Backend is a RESTful API built with Node.js and Express.js, u
    - **External**: JWT for tokens, Bcrypt for hashing.
 
 ### 2.2 Layered Architecture Diagram (Text-Based)
-   ## [Client (Postman/Frontend)]
-   ## ↓ HTTP Requests (GET/POST/etc.)
-   ## [Express Server (server.js)]
-   ## ├── Middleware (auth.js, role.js, validation.js) → Security/Checks
-   ## ├── Routes (auth.js, modules.js) → Endpoint Mapping
-   ## └── Controllers (authController.js, moduleController.js) → Request Handling
-   ## ↓ Calls
-   ## [Services (authService.js, moduleService.js)] → Business Logic (e.g., permission checks)
-   ## ↓ Calls
-   ## [Repositories (userRepository.js, moduleRepository.js)] → DB Operations
-   ## ↓ Queries
-   ## [MongoDB] → Collections: users, modules
-   ## └── Indexes: email (unique), category (for filtering)
+- **[Client (Postman/Frontend)]**
+- **↓ HTTP Requests (GET/POST/etc.)**
+- **[Express Server (server.js)]**
+- **├── Middleware (auth.js, role.js, validation.js) → Security/Checks**
+- **├── Routes (auth.js, modules.js) → Endpoint Mapping**
+- **└── Controllers (authController.js, moduleController.js) → Request Handling**
+- **↓ Calls**
+- **[Services (authService.js, moduleService.js)] → Business Logic (e.g., permission checks)**
+- **↓ Calls**
+- **[Repositories (userRepository.js, moduleRepository.js)] → DB Operations**
+- **↓ Queries**
+- **[MongoDB] → Collections: users, modules**
+- **└── Indexes: email (unique), category (for filtering)**
 
 
 
