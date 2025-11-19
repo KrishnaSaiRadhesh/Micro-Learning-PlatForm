@@ -16,17 +16,17 @@ class ModuleService {
     return module;
   }
 
-  async updateModule(id, updateData, userId) {
+  async updateModule(id, updateData, userId, userRole) {
     const module = await this.getModuleById(id);
-    if (module.createdBy._id.toString() !== userId && req.user.role !== 'admin') { // Admin override
+    if (module.createdBy._id.toString() !== userId && userRole !== 'admin') { 
       throw new Error('Not authorized');
     }
     return moduleRepo.update(id, updateData);
   }
 
-  async deleteModule(id, userId) {
+  async deleteModule(id, userId, userRole) {
     const module = await this.getModuleById(id);
-    if (module.createdBy._id.toString() !== userId && req.user.role !== 'admin') {
+    if (module.createdBy._id.toString() !== userId && userRole !== 'admin') {  
       throw new Error('Not authorized');
     }
     return moduleRepo.delete(id);

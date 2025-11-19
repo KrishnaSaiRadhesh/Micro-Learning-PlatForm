@@ -39,7 +39,7 @@ exports.getModule = async (req, res) => {
 
 exports.updateModule = async (req, res) => {
   try {
-    const module = await moduleService.updateModule(req.params.id, req.body, req.user.id);
+    const module = await moduleService.updateModule(req.params.id, req.body, req.user.id, req.user.role);  
     res.json(module);
   } catch (error) {
     res.status(400).json({ msg: error.message });
@@ -48,7 +48,7 @@ exports.updateModule = async (req, res) => {
 
 exports.deleteModule = async (req, res) => {
   try {
-    await moduleService.deleteModule(req.params.id, req.user.id);
+    await moduleService.deleteModule(req.params.id, req.user.id, req.user.role);
     res.json({ msg: 'Module deleted' });
   } catch (error) {
     res.status(400).json({ msg: error.message });
